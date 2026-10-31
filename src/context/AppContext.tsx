@@ -279,7 +279,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     persistUser(user, nextRecord, users)
   }, [persistUser, record, user, users])
 
-  const { bottles, points, earned } = totals(record)
+  const { bottles, points } = totals(record)
   const kg = ((bottles * GRAMS_PER_BOTTLE) / 1000).toFixed(1)
   const activeDays = new Set(record.collections.map((event) => event.at.slice(0, 10))).size
   const qrPayload = user

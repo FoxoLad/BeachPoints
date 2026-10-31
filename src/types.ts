@@ -60,3 +60,80 @@ export type LeaderboardRow = {
   points: number
   isYou: boolean
 }
+
+// ----------------------------------------------------
+// BeachPoints Refined Interactive Types
+// ----------------------------------------------------
+
+export type RankTier = 'Bronce' | 'Plata' | 'Oro' | 'Diamante' | 'Legendario'
+
+export interface UserProfile {
+  id: string
+  firstName: string
+  lastName: string
+  points: number
+  totalWasteCollected: number
+  totalKg: number
+  activeDays: number
+  tier: RankTier
+}
+
+export type MovementType = 'deposito' | 'canje'
+
+export interface MovementRecord {
+  id: string
+  type: MovementType
+  title: string
+  subtitle: string
+  points: number
+  date: string
+}
+
+export interface WasteRecord {
+  id: string
+  date: string
+  type: string
+  quantity: number
+  pointsEarned: number
+}
+
+export interface StoreItem {
+  id: string
+  name: string
+  cost: number
+  description: string
+  icon: string
+  discount?: string
+  logoColor?: string
+  logoBg?: string
+}
+
+export type ExchangeCategory = 'cupones' | 'productos'
+
+export interface CouponReward {
+  id: string
+  storeName: 'OXXO' | 'GO MART' | 'SIX' | 'NATURA'
+  discount: string
+  points: number
+  description: string
+  validity: string
+  barcode: string
+}
+
+export interface EcoProductReward {
+  id: string
+  name: string
+  points: number
+  description: string
+  imageKey: 'thermo' | 'cap' | 'tote' | 'snack'
+  specs: string
+}
+
+export interface ActiveVoucher {
+  code: string
+  title: string
+  discountOrReward: string
+  pointsSpent: number
+  date: string
+  barcode: string
+}

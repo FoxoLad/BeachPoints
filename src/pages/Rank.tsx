@@ -1,10 +1,15 @@
 import { RANK_STEP } from '../data/catalog'
 import { useApp, useLeaderboard } from '../context/AppContext'
 import { rankBand, tierFor, tiers } from '../lib/tiers'
+import type { Redemption } from '../types'
 
 export function Rank() {
-  const { user, bottles, points, signOut } = useApp()
-  const board = useLeaderboard(user, bottles, points + record.redemptions.reduce((sum, item) => sum + item.points, 0))
+  const { user, bottles, points, signOut, record } = useApp()
+  const board = useLeaderboard(
+    user,
+    bottles,
+    points + record.redemptions.reduce((sum: number, item: Redemption) => sum + item.points, 0)
+  )
   if (!user) return null
   const tier = tierFor(bottles)
   const band = rankBand(bottles)
