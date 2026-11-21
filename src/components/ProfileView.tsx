@@ -4,9 +4,10 @@ import type { UserProfile } from '../types'
 interface Props {
   user: UserProfile
   onResetDemo: () => void
+  onLogout?: () => void
 }
 
-export const ProfileView: React.FC<Props> = ({ user, onResetDemo }) => {
+export const ProfileView: React.FC<Props> = ({ user, onResetDemo, onLogout }) => {
   const tiers = [
     { name: 'Bronce', min: 0 },
     { name: 'Plata', min: 10 },
@@ -121,22 +122,47 @@ export const ProfileView: React.FC<Props> = ({ user, onResetDemo }) => {
         </div>
       </div>
 
-      {/* Botón de reinicio de demo */}
-      <button
-        onClick={onResetDemo}
-        style={{
-          background: 'rgba(255,255,255,0.12)',
-          color: '#ffffff',
-          border: '1px solid rgba(255,255,255,0.25)',
-          padding: '10px',
-          borderRadius: '12px',
-          fontSize: '12px',
-          fontWeight: 700,
-          cursor: 'pointer',
-        }}
-      >
-        🔄 Restablecer datos iniciales de la maqueta
-      </button>
+      {/* Botones de acción: Reiniciar y Cerrar Sesión */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <button
+          onClick={onResetDemo}
+          style={{
+            background: 'rgba(255,255,255,0.12)',
+            color: '#ffffff',
+            border: '1px solid rgba(255,255,255,0.25)',
+            padding: '10px',
+            borderRadius: '12px',
+            fontSize: '12px',
+            fontWeight: 700,
+            cursor: 'pointer',
+          }}
+        >
+          🔄 Restablecer datos iniciales de la maqueta
+        </button>
+
+        {onLogout && (
+          <button
+            onClick={onLogout}
+            style={{
+              background: 'rgba(239, 68, 68, 0.2)',
+              color: '#fecaca',
+              border: '1px solid rgba(239, 68, 68, 0.4)',
+              padding: '10px',
+              borderRadius: '12px',
+              fontSize: '12px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+            }}
+          >
+            <span>🚪</span>
+            <span>Cerrar Sesión</span>
+          </button>
+        )}
+      </div>
     </div>
   )
 }

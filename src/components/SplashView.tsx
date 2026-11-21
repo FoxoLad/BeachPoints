@@ -6,9 +6,15 @@ interface Props {
   onEnterApp: () => void
   onScanBin: () => void
   userPoints: number
+  ratioMode?: 'android' | 'windows'
 }
 
-export const SplashView: React.FC<Props> = ({ onEnterApp, onScanBin, userPoints }) => {
+export const SplashView: React.FC<Props> = ({
+  onEnterApp,
+  onScanBin,
+  userPoints,
+  ratioMode = 'android',
+}) => {
   const [activeFeature, setActiveFeature] = useState<string | null>(null)
   const binPulsing = false
 
@@ -47,9 +53,26 @@ export const SplashView: React.FC<Props> = ({ onEnterApp, onScanBin, userPoints 
   ]
 
   return (
-    <div style={{ maxWidth: '440px', margin: '0 auto', minHeight: '100vh', background: '#f4f7f4', display: 'flex', flexDirection: 'column' }}>
-      {/* Barra superior con badge de estatus */}
-      <div style={{ padding: '14px 20px 8px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <div
+      className={`app-viewport-shell mode-${ratioMode}`}
+      style={{
+        maxWidth: ratioMode === 'windows' ? 'min(860px, 94vw)' : '440px',
+        margin: '0 auto',
+        minHeight: '100dvh',
+        background: '#f4f7f4',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      {/* Barra superior con badge de estatus y Android Safespace */}
+      <div
+        style={{
+          padding: 'calc(14px + env(safe-area-inset-top, 0px)) 20px 8px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span style={{ fontSize: '20px' }}>🌊</span>
           <span style={{ fontWeight: 800, fontSize: '18px', color: '#166534', letterSpacing: '-0.3px' }}>BeachPoints</span>

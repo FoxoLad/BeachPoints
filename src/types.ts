@@ -76,7 +76,18 @@ export interface UserProfile {
   totalKg: number
   activeDays: number
   tier: RankTier
+  passwordHash?: string
+  passwordSalt?: string
+  password?: string
 }
+
+export interface RegisteredAccount extends UserProfile {
+  passwordHash?: string
+  passwordSalt?: string
+  password?: string
+}
+
+export type AuthScreen = 'login' | 'create_account' | 'forgot_password'
 
 export type MovementType = 'deposito' | 'canje'
 

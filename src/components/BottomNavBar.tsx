@@ -6,26 +6,35 @@ interface Props {
   activeTab: NavTab
   onSelectTab: (tab: NavTab) => void
   onQuickRecycle: () => void
+  ratioMode?: 'android' | 'windows'
 }
 
-export const BottomNavBar: React.FC<Props> = ({ activeTab, onSelectTab, onQuickRecycle }) => {
+export const BottomNavBar: React.FC<Props> = ({
+  activeTab,
+  onSelectTab,
+  onQuickRecycle,
+  ratioMode = 'android',
+}) => {
   return (
     <footer
+      className={`bottom-nav-shell mode-${ratioMode}`}
       style={{
         position: 'fixed',
         bottom: 0,
         left: '50%',
         transform: 'translateX(-50%)',
         width: '100%',
-        maxWidth: '440px',
-        height: '68px',
+        maxWidth: ratioMode === 'windows' ? 'min(860px, 94vw)' : '440px',
+        height: 'calc(68px + env(safe-area-inset-bottom, 0px))',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
         backgroundColor: '#ffffff',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
         borderTopLeftRadius: '22px',
         borderTopRightRadius: '22px',
-        padding: '0 8px',
+        paddingLeft: '8px',
+        paddingRight: '8px',
         boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.12)',
         zIndex: 50,
       }}

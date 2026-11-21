@@ -2,8 +2,8 @@ import React from 'react';
 import type { StoreItem } from '../types';
 
 const STORE_CATALOG: StoreItem[] = [
-  { id: '1', name: 'Botella Térmica Reutilizable', cost: 150, description: 'Mantén tus bebidas frías sin generar basura.', icon: '🍶' },
-  { id: '2', name: 'Bolsa de Tela Ecológica', cost: 50, description: 'Ideal para tus compras sin bolsas plásticas.', icon: '🛍️' },
+  { id: '1', name: 'Botella Térmica Reutilizable', cost: 6300, description: 'Mantén tus bebidas frías sin generar basura.', icon: '🍶' },
+  { id: '2', name: 'Bolsa de Tela Ecológica', cost: 1200, description: 'Ideal para tus compras sin bolsas plásticas.', icon: '🛍️' },
   { id: '3', name: 'Protector Solar Biodegradable', cost: 200, description: 'Protege tu piel y cuida los arrecifes.', icon: '🧴' },
   { id: '4', name: 'Cupón $100 Restaurante Costero', cost: 300, description: 'Válido en comercios locales asociados.', icon: '☕' },
 ];

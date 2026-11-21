@@ -4,9 +4,9 @@ import { type UserProfile, type WasteRecord, type StoreItem, type RankTier } fro
 
 // Descuentos basados en tu captura (OXXO, Go Mart, Six)
 const STORE_ITEMS: StoreItem[] = [
-  { id: '1', name: 'Cupón OXXO', cost: 150, description: '10% DESCUENTO', icon: '🏪' },
-  { id: '2', name: 'Cupón GO MART', cost: 250, description: '15% DESCUENTO', icon: '🏪' },
-  { id: '3', name: 'Cupón SIX', cost: 350, description: '20% DESCUENTO', icon: '🏪' }
+  { id: '1', name: 'Cupón OXXO', cost: 300, description: '10% DESCUENTO', icon: '🏪' },
+  { id: '2', name: 'Cupón GO MART', cost: 600, description: '15% DESCUENTO', icon: '🏪' },
+  { id: '3', name: 'Cupón SIX', cost: 1000, description: '20% DESCUENTO', icon: '🏪' }
 ];
 
 export const App: React.FC = () => {
